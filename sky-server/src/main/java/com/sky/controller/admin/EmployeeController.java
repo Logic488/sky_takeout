@@ -82,6 +82,16 @@ public class EmployeeController {
 
     }
 
+    //修改员工账号状态（启用/禁用）
+    @PostMapping("/status/{status}")
+    @ApiOperation("启用禁用员工账号")
+    public Result changeStatus(@PathVariable Integer status, Long id){
+        log.info("修改员工状态，参数为：{} ，{}", status, id);
+        employeeService.changeStatus(status,id);
+        return Result.success();
+
+    }
+
 
 
 
