@@ -19,5 +19,5 @@ public interface SetmealService {
     //修改套餐
     void update(SetmealDTO setmealDTO);
     //起售停售套餐
-    void changeStatus(Long status, Long id);
+    void changeStatus(Integer status, Long id);
 }

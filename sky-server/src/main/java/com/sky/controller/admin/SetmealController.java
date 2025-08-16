@@ -76,7 +76,7 @@ public class SetmealController {
     //起售停售套餐
     @PostMapping("/status/{status}")
     @ApiOperation("起售停售套餐")
-    public Result ChangeStatus(@PathVariable Long status, Long id){
+    public Result ChangeStatus(@PathVariable Integer status, Long id){
         log.info("起售停售套餐，参数为：{}，{}", status, id);
         setmealService.changeStatus(status,id);
         return Result.success();
