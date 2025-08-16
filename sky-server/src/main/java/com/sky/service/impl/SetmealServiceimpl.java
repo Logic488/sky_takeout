@@ -114,4 +114,10 @@ public class SetmealServiceimpl implements SetmealService {
         //加入新菜品
         setMealDishMapper.insertBatch(setmealDishes);
     }
+
+    //起售停售套餐
+    @Override
+    public void changeStatus(Long status, Long id) {
+        setmealMapper.changeStatus(status, id);
+    }
 }

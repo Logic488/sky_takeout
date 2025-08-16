@@ -7,10 +7,7 @@ import com.sky.entity.Setmeal;
 import com.sky.enumeration.OperationType;
 import com.sky.vo.SetmealVO;
 import io.swagger.annotations.ApiOperation;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 @Mapper
 public interface SetmealMapper {
@@ -40,4 +37,8 @@ public interface SetmealMapper {
 
     //修改套餐信息
     void update(Setmeal setmeal);
+
+    //起售停售套餐
+    @Update("update setmeal set status=#{status} where id=#{id}")
+    void changeStatus(Long status, Long id);
 }
