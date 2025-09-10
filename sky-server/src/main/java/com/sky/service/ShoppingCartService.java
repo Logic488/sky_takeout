@@ -14,4 +14,6 @@ public interface ShoppingCartService {
     List<ShoppingCart> showShoppingCart();
     //清空购物车
     void cleanShoppingCart();
+    //删除购物车中菜品
+    void subShoppingCart(ShoppingCartDTO shoppingCartDTO);
 }

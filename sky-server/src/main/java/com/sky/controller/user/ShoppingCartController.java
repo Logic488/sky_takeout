@@ -22,7 +22,6 @@ public class ShoppingCartController {
     private ShoppingCartService shoppingCartService;
 
 
-
     //添加购物车
     @PostMapping("/add")
     @ApiOperation("添加购物车")
@@ -44,9 +43,18 @@ public class ShoppingCartController {
     //清空购物车
     @DeleteMapping("/clean")
     @ApiOperation("清空购物车")
-    public Result deleteCart(){
+    public Result cleanCart(){
         log.info("清空购物车");
         shoppingCartService.cleanShoppingCart();
+        return Result.success();
+    }
+
+    //删除购物车中的菜品
+    @PostMapping("/sub")
+    @ApiOperation("删除购物车中的菜品")
+    public Result subCart(@RequestBody ShoppingCartDTO shoppingCartDTO){
+        log.info("删除菜品:{}",shoppingCartDTO);
+        shoppingCartService.subShoppingCart(shoppingCartDTO);
         return Result.success();
     }
 
